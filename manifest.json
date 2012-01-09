@@ -1,0 +1,33 @@
+{
+    "name": "Monetate Prospect",
+    "version": "1.0",
+    "description": "Shows the testing and analytics tools used by the site",
+    "background_page": "background.html",
+
+    "page_action": {
+      "default_icon": "prospect16.png",
+      "default_title": "Click for more details"
+    },
+
+    "content_scripts": [
+      {
+        "matches": ["http://*/*","https://*/*"],
+        "js": ["main.js"],
+        "css": ["prospect.css"]
+      }
+    ],
+    "permissions": [
+      "tabs",
+      "http://*/*",
+      "https://*/*"
+    ],
+
+    "icons" : {
+      "48" : "prospect32.png",
+      "128" : "prospect128.png"
+    },
+
+    "content_security_policy": "script-src 'self'"
+}
+
+
