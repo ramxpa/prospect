@@ -98,7 +98,6 @@ detectedTools.addBooleanIndicator = function () {
 
 detectedTools.addCompeteGraph= function(currentUrl) {
 	if (currentUrl) {
-//		var competeGraphSrc = "http://apps.compete.com/sites/"+currentUrl+"/trended/uv/?apikey=82187e50d40a24cce907ce8c8f47bf44&[DATE]&format=png";
 		var competeGraphSrc = "https://grapher.compete.com/"+currentUrl+"_uv_310.png";
 		var prospectPanel = document.getElementById('prospect-panel');
 		if (prospectPanel) {

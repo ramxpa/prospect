@@ -1,9 +1,17 @@
 var prospect =  prospect || {};
 
+/**
+ * Boolean to check if the panel is currently shown
+ */
 prospect = {
 	isVisible : false
 };
 
+/**
+ * The main detector function. Confirms the presence of the analytics
+ * or testing tool by regexing the script tag source and looking in
+ * the window objects.
+ */
 prospect.detect = function () {
 	var tools_ = {};
 
@@ -32,7 +40,7 @@ prospect.detect = function () {
 	    'Test & Target' : /mbox.js/i,
 	    'Webtrends Optimize' : /optimize.webtrends/i,
 	    'Yahoo Web Analytics': /ywa.js/i
-	}
+	};
 
 	for (var tag in scripts) {
 		var s = scripts[tag];
@@ -99,7 +107,7 @@ prospect.detect = function () {
 			return window.YWA != null;
 		}
 
-	}
+	};
 
 	for (t in windowObjects) {
 		if (t in tools_) continue;
