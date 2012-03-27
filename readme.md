@@ -11,3 +11,4 @@ TODO:
 3. Fix multiple display panel insertions. 
 4. Add scroll bar and fixed footer to the panel so that it fits the screen in any resolution/browser size
 5. Check if a css reset is needed.
+6. Minify and re-pack extensions
