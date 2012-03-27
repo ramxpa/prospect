@@ -6,7 +6,9 @@ Prospect.js (inspired by chrome sniffer) is the content script that runs on all 
 
 INSTALLATION:
 
-Download the prospect.crx file and follow the on-screen instructions.
+Download the prospect.crx file (click 'view raw')and follow the on-screen instructions.
+
+The extension requires permission on all tabs since it is needed to match the script tags source.
 
 TODO:
 
@@ -15,4 +17,6 @@ TODO:
 3. Fix multiple display panel insertions. 
 4. Add scroll bar and fixed footer to the panel so that it fits the screen in any resolution/browser size
 5. Check if a css reset is needed.
-6. Minify and re-pack extensions
+6. Add text when no analytics/testings tools are present. Will be easier to implement with mustache.
+7. Minify and re-pack extensions.
+
