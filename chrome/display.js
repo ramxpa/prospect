@@ -4,7 +4,6 @@ var detectedTools = window.prospect || {};
 detectedTools.insertProspectContainer = function() {
 	var bodyTag = document.getElementsByTagName('body')[0];
 	var leftOffset = document.body.offsetWidth - 320 + "px";
-	console.log("leftOffset", leftOffset);
 	if (bodyTag) {
 		var containerDiv = document.createElement('div');
 		bodyTag.appendChild(containerDiv);
@@ -20,12 +19,12 @@ detectedTools.insertProspectContainer = function() {
 		var currentUrl = (window.location.hostname).replace(/^www\./,'');
 		detectedTools.renderStaticText();
 		detectedTools.addHeader(prospectPanel);
-		detectedTools.addFooter(prospectPanel);
 		detectedTools.addBooleanIndicator();
 		detectedTools.addLinkedinButton(currentUrl);
 		detectedTools.addJigsawButton(currentUrl);
 		detectedTools.addCompeteGraph(currentUrl);
 		detectedTools.addCloseButton();
+		detectedTools.addNoresultsText(prospectPanel);
 		detectedTools.isVisible = true;
 	}
 };
@@ -37,29 +36,34 @@ detectedTools.renderStaticText = function () {
 		 * This is insanse! Use mustache.
 		 */
 		prospectPanel.innerHTML = "<div class = 'prospect-tools'>" +
-		"<div class = 'prospect-innerheader'>Testing Tools</div>"+
+		"<div class = 'prospect-innerheader'>Testing & Targeting</div>"+
 		"<ul class = 'testing-tools'>"+
 		"<li>Amadesa</li>" +
-		"<li>ATG Recommendations</li>" +
 		"<li>ATG Optimization</li>" +
-		"<li>Certona Resonance</li>" +
-		"<li>Baynote</li>" +
 		"<li>Google Website Optimizer</li>" +
-		"<li>Liveball</li>" +
 		"<li>Maxymiser</li>" +
 		"<li>Monetate</li>" +
-		"<li>Mybuys</li>" +
 		"<li>Optimizely</li>" +
 		"<li>Optimost</li>" +
-		"<li>Rich Relevance</li>" +
-		"<li>Steel House Media</li>" +
 		"<li>Sitespect</li>" +
-		"<li>Tellapart</li>" +
 		"<li>Test & Target</li>" +
 		"<li>Visual Web Optimizer</li>" +
 		"<li>Webtrends Optimize</li>" +
 		"</ul>"+
-		"<div class = 'prospect-innerheader'>Analytics Tools</div>"+
+		"<div class = 'prospect-innerheader'>Product Recommendations</div>" +
+		"<ul class = 'reco-tools'>"+
+		"<li>ATG Recommendations</li>" +
+		"<li>Certona Resonance</li>" +
+		"<li>Baynote</li>" +
+		"<li>Liveball</li>" +
+		"<li>Mybuys</li>" +
+		"<li>Rich Relevance</li>" +
+		"<li>Steel House Media</li>" +
+		"<li>Strands Recommender</li>" +
+		"<li>Tellapart</li>" +
+		"<li>Think Realtime</li>" +
+		"</ul>" +
+		"<div class = 'prospect-innerheader'>Analytics</div>" +
 		"<ul class = 'analytics-tools'>"+
 		"<li>Coremetrics</li>" +
 		"<li>Demandware</li>" +
@@ -152,7 +156,6 @@ detectedTools.addCloseButton = function() {
 		closeButtonContainer.className = "prospect-panel-close";
 		prospectPanel.appendChild(closeButtonContainer);
 		closeButtonContainer.addEventListener('click', function() {
-			console.log('close clicked');
 			prospectPanel.style.display = 'none';
 		});
 	}
@@ -165,16 +168,23 @@ detectedTools.addHeader = function(prospectPanel) {
 	headerDiv.className = 'prospect-header';
 };
 
-detectedTools.addFooter = function(prospectPanel) {
-	var footerDiv = document.createElement('div');
-	prospectPanel.appendChild(footerDiv);
-	footerDiv.className = 'prospect-footer';
+
+detectedTools.addNoresultsText = function(prospectPanel) {
+	var toolsUl = prospectPanel.getElementsByTagName('ul');
+	for (var i = 0; i < toolsUl.length; i ++) {
+		var liCounter = toolsUl[i].getElementsByClassName('tool-present');
+		if (!liCounter.length) {
+			var noResultsLi = document.createElement('li');
+			noResultsLi.innerText = "None";
+			noResultsLi.className = 'no-results';
+			toolsUl[i].appendChild(noResultsLi);
+		}
+	}
 };
 
 
 detectedTools.init = function () {
 	if (!detectedTools.isVisible) {
-		console.log('from display', detectedTools);
 		detectedTools.insertProspectContainer();
 	} else {
 		var prospectPanel = document.getElementById('prospect-panel');
@@ -183,5 +193,3 @@ detectedTools.init = function () {
 		}
 	}
 }();
-
-

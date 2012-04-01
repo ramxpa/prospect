@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+
+		// send message
+		function performCommand(event) {
+		    if (event.command == "prospect-click") {
+		        safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("msg", "insert-panel");
+		    }
+		}
+
+		safari.application.addEventListener("command", performCommand, false);
+		safari.application.addEventListener("message", handleEvent, false);
+		</script>
+	</head>
+</html>

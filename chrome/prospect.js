@@ -36,7 +36,9 @@ prospect.detect = function () {
 	    'Optimost': /optimost/i,
 	    'Rich Relevance': /richrelevance/i,
 	    'Steel House Media': /steelhousemedia.com/i,
+	    'Strands Recommender': /strands.com/i,
 	    'Tellapart': /tellapart/i,
+	    'Think Realtime': /1k.js/i,
 	    'Test & Target' : /mbox.js/i,
 	    'Webtrends Optimize' : /optimize.webtrends/i,
 	    'Yahoo Web Analytics': /ywa.js/i
@@ -88,11 +90,17 @@ prospect.detect = function () {
 		'Sitecatalyst': function() {
 			return window.s_account != null;
 		},
+		'Strands Recommender': function() {
+			return window.SBS != null;
+		},
 		'Tellapart': function() {
 			return window.TellApartCrumb != null;
 		},
 		'Test & Target': function() {
 			return window.mbox != null;
+		},
+		'Think Realtime': function() {
+			return window.esmcid != null;
 		},
 		'VisualWebOptimizer': function() {
 			return window.vwo_$ != null;
@@ -119,7 +127,6 @@ prospect.detect = function () {
 
 	prospect.testingTools = tools_;
 	prospect.jsonString = JSON.stringify(tools_);
-	console.log(prospect.testingTools);
 	console.log(prospect.jsonString);
 
 }();

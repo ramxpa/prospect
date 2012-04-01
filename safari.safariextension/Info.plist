@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Ram Parthasarathy</string>
+	<key>Builder Version</key>
+	<string>7534.53.10</string>
+	<key>CFBundleDisplayName</key>
+	<string>Prospect</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.monetate.prospect</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Global Page</key>
+		<string>background.html</string>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Command</key>
+				<string>prospect-click</string>
+				<key>Identifier</key>
+				<string>prospect-icon</string>
+				<key>Image</key>
+				<string>prospect.png</string>
+				<key>Label</key>
+				<string>prospect-icon</string>
+			</dict>
+		</array>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>main.js</string>
+				<string>insertPanel.js</string>
+			</array>
+		</dict>
+		<key>Stylesheets</key>
+		<array>
+			<string>prospect.css</string>
+		</array>
+	</dict>
+	<key>Description</key>
+	<string>Shows the testing, recommendation and analytics tools used by a website</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
